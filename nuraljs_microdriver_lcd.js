@@ -35,9 +35,9 @@ function log(message){
 
 function lcdWrite(message){
    lcd.clear();
-   lcd.setFontVector(12);
+   lcd.setFontVector(14);
    lcd.drawString(lcd_header,2,2);
-   lcd.setFontVector(5);
+   lcd.setFontVector(4);
    lcd.drawString(message,2,20);
    lcd.flip();
 }
