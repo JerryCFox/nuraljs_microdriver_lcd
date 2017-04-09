@@ -13,7 +13,7 @@ function init(options,cb){
             if(options.method){
                 method=options.method;
                 lcd=lcd.connect(method,function started(){
-                    lcdWrite();
+                    lcdWrite("LCD ENABLED");
                     cb(err,"LCD Ready");
                 });
             }
