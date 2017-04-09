@@ -37,7 +37,7 @@ function lcdWrite(message){
    lcd.clear();
    lcd.setFontVector(12);
    lcd.drawString(lcd_header,2,2);
-   lcd.setFontVector(3);
+   lcd.setFontVector(8);
    lcd.drawString(message,2,20);
    lcd.flip();
 }
