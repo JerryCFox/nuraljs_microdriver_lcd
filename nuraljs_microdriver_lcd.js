@@ -39,10 +39,10 @@ function lcdWrite(message){
    lcd.drawString(lcd_header,2,2);
    lcd.setFontBitmap();
    if(message.indexOf("\n")){
-       console.log("gothere");
+       //console.log("gothere");
         for(var i=0;i<message.split("\n").length;i++){
-            console.log(message.split("\n")[i]);
-            lcd.drawString(message.split("\n")[i],2,20+10*i);
+            //console.log(message.split("\n")[i]);
+            lcd.drawString(message.split("\n")[i],2,20+8*i);
         }
    }
    else{
