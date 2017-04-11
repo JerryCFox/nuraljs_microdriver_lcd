@@ -38,7 +38,14 @@ function lcdWrite(message){
    lcd.setFontVector(12);
    lcd.drawString(lcd_header,2,2);
    lcd.setFontBitmap();
-   lcd.drawString(message,2,20);
+   if(message.indexOf("\n")){
+        for(var i=0;i<message.split("\n").length;i++){
+            lcd.drawString(message.split("\n")[i],2,20+10*i);
+        }
+   }
+   else{
+    lcd.drawString(message,2,20);
+   }
    lcd.flip();
 }
     
