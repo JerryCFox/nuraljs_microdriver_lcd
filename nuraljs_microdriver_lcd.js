@@ -40,6 +40,7 @@ function lcdWrite(message){
    lcd.setFontBitmap();
    if(message.indexOf("\n")){
         for(var i=0;i<message.split("\n").length;i++){
+            console.log(message.split("\n")[i]);
             lcd.drawString(message.split("\n")[i],2,20+10*i);
         }
    }
