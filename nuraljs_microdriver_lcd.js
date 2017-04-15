@@ -12,7 +12,7 @@ function init(options,cb){
             lcd=options.lcd
             if(options.method){
                 if(options.method.method=="I2C1"&&options.method.sda&&options.method.scl){
-                    method=I2C1.setup({sda:options.sda,scl:options.scl});
+                    method=I2C1.setup({sda:options.method.sda,scl:options.method.scl});
                 }
                 else if(options.method.method=="I2C2"&&options.method.sda&&options.method.scl){
                     method=I2C2.setup({sda:options.method.sda,scl:options.method.scl});
