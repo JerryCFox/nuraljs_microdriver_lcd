@@ -11,7 +11,15 @@ function init(options,cb){
         if(options.lcd){
             lcd=options.lcd
             if(options.method){
-                method=options.method;
+                if(options.method.method=="I2C1"&&options.sda&&options.scl){
+                    method=I2C1.setup({sda:options.sda,scl:options.scl});
+                }
+                else if(options.method.method=="I2C2"&&options.sda&&options.scl){
+                    method=I2C2.setup({sda:options.sda,scl:options.scl});
+                }
+                else{
+                    throw cb(err,"LCD connect method not properly defined");
+                }
                 lcd=lcd.connect(method,function started(){
                     lcdWrite("LCD ENABLED");
                     cb(err,"LCD Ready");
