@@ -11,7 +11,7 @@ function init(options,cb){
         if(options.lcd){
             lcd=options.lcd
             if(options.method){
-                    method=options.method:
+                    method=options.method;
                     lcd=lcd.connect(method,function started(){
                         lcdWrite("LCD ENABLED");
                         cb(err,"LCD Ready");
