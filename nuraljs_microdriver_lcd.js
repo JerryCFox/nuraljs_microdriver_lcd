@@ -10,17 +10,10 @@ function init(options,cb){
     if(options){
         if(options.lcd){
             lcd=options.lcd
-            if(options.method){
-                    method=options.method;
-                    lcd=lcd.connect(method,function started(){
-                        lcdWrite("LCD ENABLED");
-                        cb(err,"LCD Ready");
-                    });
-            }
-            else{
-                cb(err,"No LCD Method Supplied, LCD Disabled");
-            };
-        };
+        }
+        else{
+            cb(err,"No LCD supplied");
+        }
     }
     else{
         cb(err,"LCD Disabled");
