@@ -10,11 +10,27 @@ function init(options,cb){
     if(options){
         if(options.lcd){
             lcd=options.lcd
-            cb(err,"LCD Ready");
-        }
-        else{
-            cb(err,"No LCD supplied");
-        }
+            if(options.method){
+                if(options.method.method=="I2C1"&&options.method.sda&&options.method.scl){
+                    I2C1.setup({sda:options.method.sda,scl:options.method.scl});
+                    method=I2C1;
+                }
+                else if(options.method.method=="I2C2"&&options.method.sda&&options.method.scl){
+                    I2C2.setup({sda:options.method.sda,scl:options.method.scl});
+                    method=I2C2;
+                }
+                else{
+                    throw cb(err,"LCD connect method not properly defined");
+                }
+                lcd=lcd.connect(method,function started(){
+                    lcdWrite("LCD ENABLED");
+                    cb(err,"LCD Ready");
+                });
+            }
+            else{
+                cb(err,"No LCD Method Supplied, LCD Disabled");
+            };
+        };
     }
     else{
         cb(err,"LCD Disabled");
@@ -44,4 +60,5 @@ function lcdWrite(message){
    }
    lcd.flip();
 }
+
     
