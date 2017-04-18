@@ -10,6 +10,7 @@ function init(options,cb){
     if(options){
         if(options.lcd){
             lcd=options.lcd
+            cb(err,"LCD Ready");
         }
         else{
             cb(err,"No LCD supplied");
